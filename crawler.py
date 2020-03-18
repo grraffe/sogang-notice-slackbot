@@ -46,7 +46,7 @@ def get_notice_block(notice):
         'haksa': ':books:',
         'janghak': ':money_with_wings:',
         'corona': ':mask:',
-        'ilban': ':mega'
+        'ilban': ':mega:'
     }
     return [
         {
