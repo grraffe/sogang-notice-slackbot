@@ -95,17 +95,18 @@ def main():
     blocks = []
     for board_info in board_infos:
         notices, new_notices = get_notices(board_info)
+        if not new_notices:
+            continue
         update_notices_to_mongo(board_info['type'], notices)
         slack_client = slack.WebClient(token=os.environ['SLACK_API_TOKEN'])
         for notice in new_notices:
-            if len(blocks) > 0:
+            if blocks:
                 blocks.extend(get_divider())
             blocks.extend(get_notice_block(notice))
             all_new_notices.append(notice)
-    if len(blocks) > 0:
+    if blocks:
         slack_client.chat_postMessage(
             channel='CV6MFML9G',
-            text='업데이트에 실패했습니다',
             blocks=blocks
         )
 
