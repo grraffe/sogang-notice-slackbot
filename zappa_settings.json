@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "app_function": "crawler.app",
+        "aws_region": "ap-northeast-2",
+        "profile_name": "at-slackbot",
+        "project_name": "notice-crawler",
+        "runtime": "python3.7",
+        "s3_bucket": "at-slackbot"
+    }
+}
